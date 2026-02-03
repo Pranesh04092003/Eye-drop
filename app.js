@@ -239,8 +239,10 @@ class EyeDropsReminder {
                 osc2.start(this.audioContext.currentTime);
                 osc2.stop(this.audioContext.currentTime + 0.4);
             }, 200);
-        };Stop the continuous sound
-        this.stopNotificationSound();
+        };
+
+        // Play initial beep
+        playBeep();
         
         // 
 
