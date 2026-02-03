@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Drops Reminder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💧 Eye Drops Reminder</h1>
+            <p class="subtitle">Stay healthy with timely reminders</p>
+        </header>
+
+        <main>
+            <div class="status-card">
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Inactive</span>
+                </div>
+                <div class="next-reminder" id="nextReminder">
+                    <p>Start reminders to see next alert</p>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h2>⚙️ Settings</h2>
+                
+                <div class="setting-group">
+                    <label for="startTime">Start Time (Daytime)</label>
+                    <input type="time" id="startTime" value="08:00">
+                </div>
+
+                <div class="setting-group">
+                    <label for="endTime">End Time (Daytime)</label>
+                    <input type="time" id="endTime" value="20:00">
+                </div>
+
+                <div class="setting-group">
+                    <label for="interval">Reminder Interval</label>
+                    <select id="interval">
+                        <option value="1">Every 1 Minute</option>
+                        <option value="30">Every 30 Minutes</option>
+                        <option value="60">Every 1 Hour</option>
+                        <option value="120">Every 2 Hours</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="soundEnabled" checked>
+                        Enable Sound Alert
+                    </label>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">
+                    Start Reminders
+                </button>
+                <button id="stopBtn" class="btn btn-secondary" disabled>
+                    Stop Reminders
+                </button>
+                <button id="testBtn" class="btn btn-test">
+                    Test Notification
+                </button>
+            </div>
+
+            <div class="history-card">
+                <h2>📋 Today's History</h2>
+                <div id="historyList" class="history-list">
+                    <p class="no-history">No reminders yet today</p>
+                </div>
+                <button id="clearHistoryBtn" class="btn btn-link">Clear History</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>💚 Take care of your eyes!</p>
+        </footer>
+    </div>
+
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💧 Eye Drops Reminder!</h2>
+            </div>
+            <div class="modal-body">
+                <p>It's time to use your eye drops!</p>
+                <p class="time-display" id="modalTime"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="snoozeBtn" class="btn btn-secondary">Snooze 5 min</button>
+                <button id="doneBtn" class="btn btn-primary">Done ✓</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
